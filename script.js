@@ -73,7 +73,7 @@ const displayMovements = function (movements) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}</div>
+        <div class="movements__value">${mov}€</div>
       </div>
     `;
 
@@ -86,10 +86,32 @@ displayMovements(account1.movements);
 // Calculate Balance
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
 };
 
 calcDisplayBalance(account1.movements);
+
+// Calculate Summary
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${Math.abs(interest)}€`;
+};
+
+calcDisplaySummary(account1.movements);
 
 // Create Usernames
 const createUsernames = function (accs) {
@@ -279,6 +301,7 @@ const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
 */
 
+/*
 // Reduce
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -305,3 +328,36 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
+*/
+
+/*
+// Coding Challenge #1
+
+function calcAverageHumanAge(ages) {
+  const humanAge = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+  console.log(humanAge);
+
+  const adultDogs = humanAge.filter(age => age >= 18);
+  console.log(adultDogs);
+
+  const avgHumanAge =
+    adultDogs.reduce((sum, age) => sum + age, 0) / adultDogs.length;
+  console.log(avgHumanAge);
+}
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+*/
+
+/*
+// Method chaining
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
+*/
