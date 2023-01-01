@@ -2,7 +2,7 @@
 
 A simple banking app built using Javascript. Dummy "log in" with user js and PIN 1111.
 
-<!-- Live URL: https://maverickapekshit.github.io/bankist/ -->
+Live URL: https://maverickapekshit.github.io/bankist/
 
 Flowchart:
 
