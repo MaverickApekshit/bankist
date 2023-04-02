@@ -14,6 +14,8 @@ Dummy "log in" with user js and PIN 1111.
 - JavaScript Internationalization
 - Smooth scrolling
 - Tabed components
+- JavaScript Intersection Observer API
+- Sticky Nav
 
 **Live URL:** https://maverickapekshit.github.io/bankist/
 
