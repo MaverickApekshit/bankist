@@ -16,6 +16,7 @@ Dummy "log in" with user js and PIN 1111.
 - Tabed components
 - JavaScript Intersection Observer API
 - Sticky Nav
+- Lazy loading
 
 **Live URL:** https://maverickapekshit.github.io/bankist/
 
